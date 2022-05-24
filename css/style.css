@@ -5,8 +5,8 @@ body {
   font-weight: bold;
   color: white;
   background: url(/img/bg1.jpg);
-  background-repeat: round;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -33,7 +33,7 @@ button:hover {
 .cointainer {
   border: 1px solid #f4f4f4;
   border-radius: 35px;
-  width: 280px;
+  width: 400px;
   padding-bottom: 25px;
-  margin: 30px auto;
+  margin: 10% auto;
 }
