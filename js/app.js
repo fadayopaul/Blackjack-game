@@ -39,7 +39,7 @@ function startgame() {
 function rendergame() {
   cardsEL.textContent = "Cards: ";
   for (let i = 0; i < cards.length; i++) {
-    cardsEL.textContent += cards[i] + ", ";
+    cardsEL.textContent += " " + cards[i] + " -";
   }
 
   sumEL.textContent = "Sum: " + sum;
