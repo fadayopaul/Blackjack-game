@@ -1,19 +1,38 @@
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard]; //array- ordered list ot items
-let sum = firstCard + secondCard;
+player = {
+  name: "PaulF",
+  chips: 145,
+};
+let cards = [];
+let sum = 0;
 let hasBlackjack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEL = document.querySelector("#sum-el");
 let cardsEL = document.querySelector("#cards-el");
 
+let playerEL = document.getElementById("player-el");
+playerEL.textContent = player.name + ": $" + player.chips;
+
 function getRandomCard() {
-  return 5;
+  let randonNumber = Math.floor(Math.random() * 13) + 1;
+
+  if (randonNumber > 10) {
+    return 11;
+  } else if (randonNumber === 1) {
+    return 11;
+  } else {
+    return randonNumber;
+  }
 }
 
 function startgame() {
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
+  isAlive = true;
+
   rendergame();
 }
 
@@ -38,12 +57,10 @@ function rendergame() {
 }
 
 function newcard() {
-  console.log("drawing a new card from the deck");
-  let card = getRandomCard();
-  sum += card;
-
-  cards.push(card);
-  console.log(cards);
-
-  rendergame();
+  if (isAlive === true && hasBlackjack === false) {
+    let card = getRandomCard();
+    sum += card;
+    cards.push(card);
+    rendergame();
+  }
 }
